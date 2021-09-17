@@ -19,6 +19,14 @@ The following should be installed:
     ripgrep
   ```
 
+## Recommendations
+
+### Remapping
+
+- CapsLock to Ctrl
+  - Windows: use PowerToys to remap
+  - Linux: TODO
+
 ## References
 
 [Vim Awesome](https://vimawesome.com/)
