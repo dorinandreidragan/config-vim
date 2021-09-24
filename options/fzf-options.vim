@@ -15,15 +15,15 @@ let g:fzf_colors =
 
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
-  \ 'ctrl-b': 'split',
-  \ 'ctrl-v': 'vsplit',
-  \ 'ctrl-y': {lines -> setreg('*', join(lines, "\n"))}}
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-b': 'vsplit'}
 
-" Launch fzf with CTRL+P.
-nnoremap <silent> <C-p> :Files <CR>
-let $FZF_DEFAULT_COMMAND = 'rg --files --ignore-case --hidden -g "!{.git,node_modules,vendor}/*"'
-command! -bang -nargs=? -complete=dir Files
-     \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+"let g:fzf_layout = { 'down': '40%', 'window': { 'width': 0.9, 'height': 0.6} }
+
+nnoremap <leader>b :Buffers <CR>
+nnoremap <C-p> :GFiles <CR>
+
+let $FZF_DEFAULT_COMMAND = 'rg --hidden -l ""'
 
 " Set fzf highlihgt syntax
 let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,4 --preview 'bat --color=always --style=header,grid --line-range :300 {}'"

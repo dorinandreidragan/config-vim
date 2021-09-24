@@ -8,18 +8,37 @@ This repository contains scripts to help you get started with already configured
 
 The following should be installed:
 
- - cmake
- - npm
- - ripgrep
+- cmake
+- npm
+- ripgrep
+- fd-find
+- bat
+
+```bash
+sudo apt install -y \
+  bat \
+  cmake \
+  fd-find \
+  npm \
+  ripgrep
+```
+
+- install Python 3 provider: `pynvim`
 
   ```bash
-  sudo apt install -y \
-    cmake \
-    npm \
-    ripgrep
+  pip3 install pynvim
+  # or
+  pip3 install --upgrade pynvim
+  ```
+- install NodeJs provider: 
+
+  ```bash
+  sudo apt npm install -g neovim
   ```
 
-#### Node.js 
+> _Note:_ `bat` & `ripgrep` collide to each other on `Ubuntu 20.04`. Fixed with [dpkg error: trying to overwrite file, which is also in ...](https://askubuntu.com/questions/176121/dpkg-error-trying-to-overwrite-file-which-is-also-in/491086#491086)
+
+#### Node.js
 
 Node version should fulfill the [coc.vim requirements](https://github.com/neoclide/coc.nvim/wiki/Install-coc.nvim#requirements)
 
@@ -32,13 +51,14 @@ Install one of the NERD Fonts so that the [vim-devicon](https://github.com/ryano
 ##### Ubuntu
 
 ```bash
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip  
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip
 mkdir -p ~/.local/share/fonts/nerd-fonts
 sudo unzip Hack.zip -d ~/.local/share/fonts/nerd-fonts
 fc-cache -fv
 ```
 
-##### Wsl 2 
+##### Wsl 2
+
 - Download the Hack.zip from [NERD Fonts Download page]
 - Install the NERD Fonts
 - Change Windows Terminal settings to use the installed NERD Font for the Ubuntu distribution in the snippet below
@@ -72,15 +92,21 @@ fc-cache -fv
 
 [Vim Awesome](https://vimawesome.com/)
 
+### Themes
+
+- [https://vimcolorschemes.com/](https://vimcolorschemes.com/)
+
+### Lua
+
+- [NeoVim LSP enhanced](https://alpha2phi.medium.com/neovim-lsp-enhanced-a3d313abee65)
+
 ### Examples of setups
 
 - [Ultimate Vim TypeScript setup](https://pragmaticpineapple.com/ultimate-vim-typescript-setup/)
 
 - [https://github.com/nickjj/dotfiles](https://github.com/nickjj/dotfiles)
 
-
 ### Tips and Tricks
 
 - [Change your Vim Cursor from a Block to Line in Normal and insert Mode](https://www.youtube.com/watch?v=FcQjTXLrVUU)
-- 
-
+-

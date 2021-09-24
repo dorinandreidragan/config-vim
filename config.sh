@@ -25,8 +25,9 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 
 echo "Copy custom options"
 mkdir -p ~/.vim/options
-cp options/nerdtree-options.vim ~/.vim/options/
+cp options/nerd-options.vim ~/.vim/options/
 cp options/fzf-options.vim ~/.vim/options/
+cp options/vim-test-options.vim ~/.vim/options/
 
 # options for coc
 cp options/coc-options.vim ~/.vim/options/
