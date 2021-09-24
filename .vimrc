@@ -39,6 +39,11 @@ Plug 'janko-m/vim-test'
 
 call plug#end()
 
+autocmd VimEnter *
+  \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \|   PlugInstall --sync | q
+  \| endif
+
 " source custom configuration
 source ~/.vim/options/sets.vim
 source ~/.vim/options/theme.vim
