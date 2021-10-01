@@ -2,20 +2,13 @@
 set wildmenu
 set ttyfast
 set lazyredraw
-set updatetime=50
 set hidden " Open other files if current one is not saved
 set scrolloff=8
 set noshowmode
 set completeopt=menuone,noinsert,noselect
 
-" Use a line cursor within insert mode and a block cursor everywhere else
-let &t_SI = "\e[6 q"
-let &t_EI = "\e[2 q"
-
 set nu
 set relativenumber
-set cursorline
-set cursorcolumn
 
 set nowrap
 
@@ -30,7 +23,7 @@ set hlsearch
 set incsearch
 
 " Disable all bells and whistles
-set t_vb=
+set noerrorbells visualbell t_vb=
 
 " Tab Options
 set shiftwidth=2
@@ -43,25 +36,8 @@ set autoindent
 set cindent
 set smartindent
 
-" Allow copy and paste from system clipboard
-" set clipboard=unnamed " this slows down the nvim startup
-
 set nowritebackup
 set noswapfile
-
-" Set termcolors
-let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
-let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
-set termguicolors
-set term=xterm-256color
-
-" nerdcommenter" Set default encoding to utf-8
-set encoding=utf-8
-set termencoding=utf-8
-
-" Needed for dev-icons plugin
-set guifont=Hack\ Nerd\ Font\ 11
-let g:airline_powerline_fonts = 1
 
 " Space for linting errors
 set signcolumn=yes
@@ -90,11 +66,11 @@ nnoremap <leader>qw :q!<CR>
 nnoremap <leader>qa :qa!<CR>
 nnoremap <leader>x :x<CR>
 
+" Source Vim configuration file and install plugins
+nnoremap <leader>1 :source ~/.vimrc \| :PlugInstall <CR>
+
 " Open Vim configuration file for editing
 nnoremap <leader>2 :e ~/.vimrc<CR>
-
-" Source Vim configuration file and install plugins
-nnoremap <leader>1 :source ~/.vimrc \| :PlugInstall<CR>
 
 " Jump through split windows
 nnoremap <leader>h :wincmd h<CR>
@@ -102,9 +78,6 @@ nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>u :UndotreeShow<CR>
-
-" Git status
-nnoremap <leader>gs :G<CR>
 
 " move line or visually selected block - alt+j/k
 inoremap <A-j> <Esc>:m .+1<CR>==gi
@@ -118,5 +91,11 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
  nnoremap <A-k> <C-W>K
  nnoremap <A-l> <C-W>L
 
-" for developing init.vim and options
-nnoremap <leader>nu :w! \| :!cp options/* ~/.vim/options<CR>
+" Map for visual block
+nnoremap <leader>ss <C-v>
+
+" Map CR to insert empty line bellow but also move the cursor down
+nnoremap <silent> <CR> :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
+
+" for developing configuration for vim 
+nnoremap <leader>nu :w! \| :!cp -f options/* ~/.vim/options <CR>

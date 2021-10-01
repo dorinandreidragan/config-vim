@@ -6,25 +6,21 @@ let g:coc_global_extensions=[
   \ 'coc-prettier',
   \ 'coc-snippets',
   \ 'coc-jest',
-  "\ 'coc-yaml', 
-  "\ 'coc-omnisharp', 
-  "\ 'coc-powershell',
+  \ 'coc-yaml', 
+  \ 'coc-omnisharp', 
+  \ 'coc-powershell',
   "\ 'coc-explorer',
   \ ]
 
-" coc-explorer
-"nmap <space>e :CocCommand explorer<CR>
-"nmap <space>f :CocCommand explorer --preset floating<CR>
-"autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
+" coc-prettier
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
-nnoremap <leader>ek * :<C-U>CocPrev<CR>
-nnoremap <leader>ej * :<C-U>CocNext<CR>
 " coc-jest
 " -----------
 " Run jest for current project
-command! -nargs=0 Jest :call  CocAction('runCommand', 'jest.projectTest')
+command! -nargs=0 Jest :call CocAction('runCommand', 'jest.projectTest')
 " Run jest for current file
-command! -nargs=0 JestCurrent :call  CocAction('runCommand', 'jest.fileTest', ['%'])
+command! -nargs=0 JestCurrent :call CocAction('runCommand', 'jest.fileTest', ['%'])
 " Run jest for current test
 nnoremap <leader>te :call CocAction('runCommand', 'jest.singleTest')<CR>
 " Init jest in current cwd, require global jest command exists
