@@ -1,24 +1,24 @@
-# vim-config
+# Config Vim
 
-This repository contains scripts to help you get started with already configured `vim`.
+## Prerequisites
 
-## Linux
+### RHEL
 
-### Prerequisites
-
-The following should be installed:
-
- - cmake
- - npm
- - ripgrep
+- Install `fzf`, the fuzzy finder
 
   ```bash
-  sudo apt install -y \
-    cmake \
-    npm \
-    ripgrep
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  ~/.fzf/install
+  ```
+
+- Install the Silver Searcher (Ag tool)
+
+  ```bash
+  yum install epel-release
+  yum install the_silver_searcher
   ```
 
 ## References
 
-[Vim Awesome](https://vimawesome.com/)
+- How to search faster in Vim with FZF.vim
+  - https://dev.to/iggredible/how-to-search-faster-in-vim-with-fzf-vim-36ko
